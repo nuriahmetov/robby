@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {setTimeout} from 'timers';
 
 function delay(ms: number) {
   return new Promise(resolve => setTimeout(resolve, ms));
