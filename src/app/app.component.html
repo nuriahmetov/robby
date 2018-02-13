@@ -1,0 +1,72 @@
+<div class="form-background">
+
+  <form #form="ngForm" (ngSubmit)="submitForm()" class="form-horizontal">
+
+    <div class="container">
+      <div class="row" style="text-align: center;">
+
+        <div class="form-group">
+          <label for="field">field</label>
+          <input type="text" id="field" name="field" required [(ngModel)]="field" autofocus>
+        </div>
+
+        <div class="form-group">
+          <label for="power">power</label>
+          <input type="number" min="0" step="1" id="power" name="power" required [(ngModel)]="power">
+        </div>
+
+        <div class="form-group">
+          <button class="btn btn-primary" type="submit" [disabled]="form.invalid">GO!</button>
+        </div>
+
+      </div>
+    </div>
+
+  </form>
+
+</div>
+
+<hr>
+
+<div *ngIf="submitted">
+
+  <div *ngIf="commands.length === 0"
+       class="text-danger text-center"
+       style="padding: 10px;">Path not found...</div>
+
+  <div *ngIf="commands.length > 0">
+
+    <div class="text-success text-center"
+        style="padding: 10px;">Path found with <strong>{{ commands.length }}</strong> step(s)!
+    </div>
+
+
+    <div class="command-list text-center">
+      <div class="command-cell"
+           *ngFor="let command of commands; let i = index;"
+           [ngClass]="{'current-command': i == commandIndex }"> {{ command.toUpperCase() }}</div>
+    </div>
+
+    <div class="text-center">
+      <div style="display: inline-block;">
+
+        <table class="map">
+          <tr *ngFor="let row of map">
+            <td *ngFor="let cell of row"
+                [ngClass]="{
+                'cell-visited': cell.visited,
+                'cell-current': cell.current,
+                'cell-north': cell.direction == 'n',
+                'cell-south': cell.direction == 's',
+                'cell-east': cell.direction == 'e',
+                'cell-west': cell.direction == 'w'
+                }">{{ cell.symbol }}</td>
+          </tr>
+        </table>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+

@@ -1,0 +1,61 @@
+hr {
+  margin: 0; border: 1px solid lightgrey;
+}
+
+input[type=text], input[type=number] {
+  height: 40px;
+}
+input[type=text] {
+  width: 400px;
+}
+input[type=number] {
+  width: 75px; text-align: center;
+}
+label {
+  padding: 0 10px;
+}
+button {
+  height: 40px; margin-left: 10px; width: 80px;
+}
+
+.ng-invalid[required], .ng-invalid.required  { border: 1px solid red; }
+
+.form-background {
+  background-color: #e9ecef; padding: 10px;
+}
+
+.command-list {
+  margin-bottom: 10px;
+}
+.command-cell {
+  display: inline-block; margin: 2px; background-color: #e9ecef;
+  width: 40px; height: 40px; line-height: 40px;
+}
+
+.map td {
+  width: 40px; height: 40px;
+  border: 1px solid #ffffff; text-align: center;
+  background-color: #e9ecef; padding: 2px;
+}
+
+.cell-visited {
+  background-color: darkseagreen !important;
+}
+.cell-current {
+  background-color: #28a745 !important;
+}
+.cell-north {
+  border-top: 2px solid red !important;
+}
+.cell-south {
+  border-bottom: 2px solid red !important;
+}
+.cell-east {
+  border-right: 2px solid red !important;
+}
+.cell-west {
+  border-left: 2px solid red !important;
+}
+.current-command {
+  background-color: #28a745; font-weight: bold;
+}
